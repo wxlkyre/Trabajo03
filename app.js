@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.getElementById('task-list');
     const errorMessage = document.getElementById('error-message');
 
-    // Cargar tareas desde el localStorage
+    // Cargar tareas localStorage al cargar la página
     loadTasks();
 
     // Manejar el envío del formulario
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.textContent = '';
     });
 
-    // Función para agregar tarea
+    // Agregar tarea
     function addTask(taskText) {
         const li = document.createElement('li');
         li.textContent = taskText;
@@ -51,12 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTasks();
     }
 
-    // Función para mostrar mensaje de error
+    // Mostrar mensaje de error
     function showError(message) {
         errorMessage.textContent = message;
     }
 
-    // Función para guardar tareas en localStorage
+    // Guardar tareas localStorage
     function saveTasks() {
         const tasks = [];
         document.querySelectorAll('#task-list li').forEach(taskItem => {
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    // Función para cargar tareas desde localStorage
+    // Cargar tareas localStorage
     function loadTasks() {
         const savedTasks = JSON.parse(localStorage.getItem('tasks'));
         if (savedTasks) {
